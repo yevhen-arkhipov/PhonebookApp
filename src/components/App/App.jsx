@@ -18,6 +18,11 @@ import {
 } from './App.styled';
 
 const App = () => {
+  // {
+  // contacts: [],
+  // filter: ""
+  // }
+
   const [contacts, setContacts] = useContacts([]);
   const [filter, setFilter] = useState('');
   const [name, setName] = useState('');
