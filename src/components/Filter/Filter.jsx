@@ -1,10 +1,18 @@
-import PropTypes from 'prop-types';
-
-import { Label, Input } from './Filter.styled';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/filterSlice';
 
 import Box from 'components/Box';
 
-const Filter = ({ filterValue, onChange }) => {
+import { Label, Input } from './Filter.styled';
+
+const Filter = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    const form = e.currentTarget.value;
+    dispatch(setFilter(form));
+  };
+
   return (
     <Box>
       <Label>
@@ -15,17 +23,11 @@ const Filter = ({ filterValue, onChange }) => {
           required
           type="text"
           name="filter"
-          value={filterValue}
-          onChange={onChange}
+          onChange={handleSubmit}
         />
       </Label>
     </Box>
   );
-};
-
-Filter.propTypes = {
-  filterValue: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
 };
 
 export default Filter;

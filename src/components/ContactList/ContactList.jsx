@@ -1,34 +1,31 @@
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import ContactItem from 'components/ContactItem';
 
-import { List } from './ContactList.styled';
+import { List, ErrorText } from './ContactList.styled';
 
-const Contacts = ({ contacts, onClick }) => {
+const Contacts = () => {
+  const contacts = useSelector(state => state.contacts.contacts);
+  const filter = useSelector(state => state.filter.filter);
+  const visibleContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  if (!contacts?.length) {
+    return <ErrorText>You can add contacts</ErrorText>;
+  }
+
+  if (!visibleContacts?.length) {
+    return <ErrorText>Not found </ErrorText>;
+  }
+
   return (
     <List>
-      {contacts.map(({ id, name, number }) => (
-        <ContactItem
-          key={id}
-          id={id}
-          name={name}
-          number={number}
-          onClick={onClick}
-        />
+      {visibleContacts.map(({ id, name, number }) => (
+        <ContactItem key={id} id={id} name={name} number={number} />
       ))}
     </List>
   );
 };
 
 export default Contacts;
-
-Contacts.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onClick: PropTypes.func.isRequired,
-};
