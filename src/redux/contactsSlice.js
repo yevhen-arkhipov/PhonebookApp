@@ -43,3 +43,7 @@ export const contactsReducer = persistReducer(
   persistConfig,
   contactsSlice.reducer
 );
+
+// Selectors
+
+export const getContactsState = state => state.contacts.contacts;

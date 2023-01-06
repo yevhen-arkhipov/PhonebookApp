@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact, getContactsState } from 'redux/contactsSlice';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { DataForm, Label, Input, Button } from './ContactForm.styled';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(getContactsState);
 
   const handleSubmit = e => {
     e.preventDefault();
