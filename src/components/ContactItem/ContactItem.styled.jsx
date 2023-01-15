@@ -17,7 +17,6 @@ export const Text = styled.p`
 
 export const Button = styled.button`
   margin-left: ${p => p.theme.space[0]}px;
-  // margin-top: 30px;
   padding-top: 3px;
   padding-bottom: 3px;
   font-size: 10px;

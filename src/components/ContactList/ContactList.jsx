@@ -1,30 +1,31 @@
 import { useSelector } from 'react-redux';
-import { getContactsState } from 'redux/contactsSlice';
-import { getFilterState } from 'redux/filterSlice';
+import {
+  selectContacts,
+  selectFilter,
+  selectVisibleContacts,
+} from 'redux/selectors';
 
 import ContactItem from 'components/ContactItem';
 
 import { List, ErrorText } from './ContactList.styled';
 
 const Contacts = () => {
-  const contacts = useSelector(getContactsState);
-  const filter = useSelector(getFilterState);
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  const visibleContacts = selectVisibleContacts(contacts, filter);
 
   if (!contacts?.length) {
     return <ErrorText>You can add contacts</ErrorText>;
   }
 
   if (!visibleContacts?.length) {
-    return <ErrorText>Not found </ErrorText>;
+    return <ErrorText>Not found...</ErrorText>;
   }
 
   return (
     <List>
-      {visibleContacts.map(({ id, name, number }) => (
-        <ContactItem key={id} id={id} name={name} number={number} />
+      {visibleContacts.map(({ id, name, phone }) => (
+        <ContactItem key={id} id={id} name={name} number={phone} />
       ))}
     </List>
   );
