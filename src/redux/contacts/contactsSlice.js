@@ -1,13 +1,16 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from 'redux/operations';
+import { logOut } from 'redux/auth/operations';
+
+import { fetchContacts, addContact, deleteContact } from './operations';
 import {
   fetchContactsFulfilledReducer,
   addContactFulfilledReducer,
   deleteContactFulfilledReducer,
+  logOutFulfilledReducer,
   anyPendingReducer,
   anyRejectedReducer,
   anyFulfilledReducer,
-} from 'redux/contactsSliceReducers';
+} from './contactsSliceReducers';
 
 const extraActions = [fetchContacts, addContact, deleteContact];
 
@@ -25,6 +28,7 @@ const contactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, fetchContactsFulfilledReducer)
       .addCase(addContact.fulfilled, addContactFulfilledReducer)
       .addCase(deleteContact.fulfilled, deleteContactFulfilledReducer)
+      .addCase(logOut.fulfilled, logOutFulfilledReducer)
       .addMatcher(getActions('pending'), anyPendingReducer)
       .addMatcher(getActions('rejected'), anyRejectedReducer)
       .addMatcher(getActions('fulfilled'), anyFulfilledReducer),

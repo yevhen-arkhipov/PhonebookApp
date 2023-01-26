@@ -1,8 +1,10 @@
-import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
-
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter } from 'react-router-dom';
+
+import { store, persistor } from 'redux/store';
 
 import App from 'components/App';
 
@@ -17,8 +19,12 @@ root.render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <App />
-        <GlobalStyle />
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter basename="/goit-react-hw-08-phonebook">
+            <App />
+            <GlobalStyle />
+          </BrowserRouter>
+        </PersistGate>
       </Provider>
     </ThemeProvider>
   </StrictMode>

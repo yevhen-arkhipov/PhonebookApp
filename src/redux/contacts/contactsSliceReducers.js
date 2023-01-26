@@ -13,6 +13,12 @@ export const deleteContactFulfilledReducer = (state, action) => {
   state.items.splice(index, 1);
 };
 
+export const logOutFulfilledReducer = state => {
+  state.items = [];
+  state.error = null;
+  state.isLoading = false;
+};
+
 export const anyPendingReducer = state => {
   state.isLoading = true;
 };

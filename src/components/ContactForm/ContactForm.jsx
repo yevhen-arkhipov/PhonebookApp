@@ -1,19 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/contacts/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import { useContacts } from 'hooks';
 
 import { DataForm, Label, Input, Button } from './ContactForm.styled';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const { contacts } = useContacts();
 
   const handleSubmit = e => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    const newContact = { name: form.name.value, phone: form.number.value };
+    const newContact = { name: form.name.value, number: form.number.value };
     const findContact = contacts.find(
       contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
