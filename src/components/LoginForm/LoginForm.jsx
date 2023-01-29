@@ -1,5 +1,9 @@
 import { useDispatch } from 'react-redux';
+
 import { logIn } from 'redux/auth/operations';
+
+import { Box, Typography, TextField, Avatar, Button } from '@mui/material';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -19,22 +23,53 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Email
-        <input
+    <>
+      <Avatar sx={{ marginTop: 4, bgcolor: '#883f2d' }}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography component="h1" variant="h6">
+        Log in
+      </Typography>
+      <Box
+        component="form"
+        sx={{
+          marginTop: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '400px',
+        }}
+        onSubmit={handleSubmit}
+        autoComplete="off"
+      >
+        <TextField
           type="email"
           name="email"
+          label="Email"
           pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+          margin="normal"
+          fullWidth
           required
         />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" required />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+        <TextField
+          type="password"
+          name="password"
+          label="Password"
+          margin="normal"
+          required
+          fullWidth
+        />
+        <Button
+          type="submit"
+          variant="outlined"
+          sx={{
+            marginTop: 4,
+          }}
+        >
+          Continue
+        </Button>
+      </Box>
+    </>
   );
 };
 

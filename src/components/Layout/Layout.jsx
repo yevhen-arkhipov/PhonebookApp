@@ -1,26 +1,22 @@
-import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
-import Box from 'components/Box';
 import AppBar from 'components/AppBar';
+
+import { Box, Container } from '@mui/material';
 
 const Layout = () => {
   return (
-    <Box
-      display="flex"
-      justifyContent="space-around"
-      alignItems="center"
-      width="1280px"
-      height="970px"
-      bg="bodyColor"
-      boxShadow="outline"
-      as="main"
-    >
-      <AppBar />
-      <Suspense>
-        <Outlet />
-      </Suspense>
-    </Box>
+    <>
+      <Container component="main" maxWidth="xl">
+        <Box sx={{ bgcolor: '#fff', height: '100vh' }}>
+          <AppBar />
+          <Suspense>
+            <Outlet />
+          </Suspense>
+        </Box>
+      </Container>
+    </>
   );
 };
 

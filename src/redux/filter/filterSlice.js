@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { logOut } from 'redux/auth/operations';
 
 const filterSlice = createSlice({
   name: 'filter',
@@ -7,6 +8,10 @@ const filterSlice = createSlice({
     setFilter(state, action) {
       return action.payload;
     },
+    extraReducers: builder =>
+      builder.addCase(logOut.fulfilled, state => {
+        state.filter = '';
+      }),
   },
 });
 

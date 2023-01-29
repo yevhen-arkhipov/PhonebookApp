@@ -4,7 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { useContacts } from 'hooks';
 
-import { DataForm, Label, Input, Button } from './ContactForm.styled';
+import { Box, Typography, TextField, Button } from '@mui/material';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -36,31 +36,53 @@ const ContactForm = () => {
   };
 
   return (
-    <DataForm onSubmit={handleSubmit}>
-      <Label>
-        Name
-        <Input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          autoComplete="false"
-        />
-      </Label>
-      <Label>
-        Number
-        <Input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          autoComplete="false"
-        />
-      </Label>
-      <Button type="submit">Add contact</Button>
-    </DataForm>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '400px',
+      }}
+      autoComplete="off"
+    >
+      <Typography component="h4" variant="1">
+        Add contact
+      </Typography>
+      <TextField
+        type="text"
+        name="name"
+        label="Name"
+        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        margin="normal"
+        fullWidth
+        required
+        autoComplete="false"
+        sx={{ marginTop: 4 }}
+      />
+      <TextField
+        type="tel"
+        name="number"
+        label="Number"
+        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        margin="normal"
+        fullWidth
+        required
+        autoComplete="false"
+      />
+      <Button
+        type="submit"
+        variant="outlined"
+        sx={{
+          marginTop: 4,
+        }}
+      >
+        Add contact
+      </Button>
+    </Box>
   );
 };
 

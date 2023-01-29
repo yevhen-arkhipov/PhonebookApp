@@ -1,14 +1,24 @@
 import { Helmet } from 'react-helmet';
+
 import LoginForm from 'components/LoginForm';
+
+import { Container } from '@mui/material';
 
 const Login = () => {
   return (
-    <div>
+    <Container
+      component="section"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
       <Helmet>
         <title>Login</title>
       </Helmet>
       <LoginForm />
-    </div>
+    </Container>
   );
 };
 

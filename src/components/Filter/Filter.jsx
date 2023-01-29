@@ -1,9 +1,8 @@
 import { useDispatch } from 'react-redux';
+
 import { setFilter } from 'redux/filter/filterSlice';
 
-import Box from 'components/Box';
-
-import { Label, Input } from './Filter.styled';
+import { Container, Typography, TextField } from '@mui/material';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -14,19 +13,30 @@ const Filter = () => {
   };
 
   return (
-    <Box>
-      <Label>
-        Find contacts by name
-        <Input
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          type="text"
-          name="filter"
-          onChange={handleSubmit}
-        />
-      </Label>
-    </Box>
+    <Container
+      component="div"
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      <Typography component="h4" variant="1">
+        Find contact by name
+      </Typography>
+      <TextField
+        onChange={handleSubmit}
+        type="text"
+        name="filter"
+        label="Enter contact"
+        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        margin="normal"
+        fullWidth
+        required
+        sx={{ marginTop: 4, width: '400px' }}
+      />
+    </Container>
   );
 };
 

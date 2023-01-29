@@ -2,12 +2,11 @@ import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-import { PrivateRoute } from './PrivateRoute';
-import { RestrictedRoute } from './RestrictedRoute';
-
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 import Layout from 'components/Layout';
 import Loader from 'components/Loader';
 
@@ -25,7 +24,6 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    // <b>Refreshing user...</b>
     <Loader />
   ) : (
     <Routes>
