@@ -25,8 +25,8 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, registerFulfilledReducer)
       .addCase(logIn.fulfilled, logInFulfilledReducer)
       .addCase(logOut.fulfilled, logOutFulfilledReducer)
-      .addCase(refreshUser.fulfilled, refreshUserFulfilledReducer)
       .addCase(refreshUser.pending, refreshUserPendingReducer)
+      .addCase(refreshUser.fulfilled, refreshUserFulfilledReducer)
       .addCase(refreshUser.rejected, refreshUserRejectedReducer),
 });
 
