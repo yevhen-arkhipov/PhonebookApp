@@ -21,7 +21,13 @@ const Filter = () => {
         flexDirection: 'column',
       }}
     >
-      <Typography component="h4" variant="1">
+      <Typography
+        component="h4"
+        variant="1"
+        sx={{
+          marginTop: 1,
+        }}
+      >
         Find contact by name
       </Typography>
       <TextField

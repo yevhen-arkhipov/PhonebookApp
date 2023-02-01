@@ -10,7 +10,7 @@ import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
 import Loader from 'components/Loader';
 
-import { Container, Typography, Avatar } from '@mui/material';
+import { Typography, Avatar } from '@mui/material';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 
@@ -22,23 +22,23 @@ const Contacts = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  return (
-    <Container
-      component="section"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
+  return isLoading && !error ? (
+    <Loader />
+  ) : (
+    <>
       <Helmet>
         <title>Contacts</title>
       </Helmet>
-      {isLoading && !error && <Loader />}
-      <Avatar sx={{ marginTop: 4, bgcolor: '#883f2d' }}>
+      <Avatar sx={{ bgcolor: '#883f2d' }}>
         <PersonAddAltIcon />
       </Avatar>
-      <Typography component="h1" variant="h6">
+      <Typography
+        component="h1"
+        variant="h6"
+        sx={{
+          marginTop: 1,
+        }}
+      >
         Phonebook
       </Typography>
       <ContactForm />
@@ -48,13 +48,15 @@ const Contacts = () => {
       <Typography
         component="h2"
         variant="h6"
-        sx={{ display: 'flex', justifyContent: 'center' }}
+        sx={{
+          marginTop: 1,
+        }}
       >
         Contacts
       </Typography>
       <Filter />
       <ContactList />
-    </Container>
+    </>
   );
 };
 

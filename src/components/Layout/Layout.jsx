@@ -8,12 +8,41 @@ import { Box, Container } from '@mui/material';
 const Layout = () => {
   return (
     <>
-      <Container component="main" maxWidth="xl">
-        <Box sx={{ bgcolor: '#fff', height: '100vh' }}>
-          <AppBar />
-          <Suspense>
-            <Outlet />
-          </Suspense>
+      <Container
+        component="div"
+        maxWidth="xl"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          bgcolor: '#fff',
+        }}
+      >
+        <AppBar />
+        <Box
+          component="main"
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '900px',
+          }}
+        >
+          <Box
+            component="section"
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              pt: '32px',
+              pb: '32px',
+            }}
+          >
+            <Suspense>
+              <Outlet />
+            </Suspense>
+          </Box>
         </Box>
       </Container>
     </>

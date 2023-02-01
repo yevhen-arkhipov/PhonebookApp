@@ -47,7 +47,13 @@ const ContactForm = () => {
       }}
       autoComplete="off"
     >
-      <Typography component="h4" variant="1">
+      <Typography
+        component="h4"
+        variant="1"
+        sx={{
+          marginTop: 1,
+        }}
+      >
         Add contact
       </Typography>
       <TextField

@@ -4,27 +4,19 @@ import { useAuth } from 'hooks';
 
 import AuthNav from 'components/AuthNav';
 
-import { Container, Box, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const Home = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <Container
-      component="section"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
+    <>
       <Helmet>
         <title>Phonebook</title>
       </Helmet>
       <Box
         component="div"
         sx={{
-          marginTop: 26,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -42,13 +34,13 @@ const Home = () => {
             Please sign in to your account.
           </Typography>
         ) : (
-          <Typography component="h2" variant="h5" sx={{ mb: '20px' }}>
+          <Typography component="h2" variant="h5">
             You are logged in, you can manage your contacts.
           </Typography>
         )}
         {!isLoggedIn && <AuthNav />}
       </Box>
-    </Container>
+    </>
   );
 };
 

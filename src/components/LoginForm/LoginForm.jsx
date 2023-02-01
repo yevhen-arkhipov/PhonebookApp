@@ -24,10 +24,16 @@ const LoginForm = () => {
 
   return (
     <>
-      <Avatar sx={{ marginTop: 4, bgcolor: '#883f2d' }}>
+      <Avatar sx={{ bgcolor: '#883f2d' }}>
         <LockOutlinedIcon />
       </Avatar>
-      <Typography component="h1" variant="h6">
+      <Typography
+        component="h1"
+        variant="h6"
+        sx={{
+          marginTop: 1,
+        }}
+      >
         Log in
       </Typography>
       <Box
