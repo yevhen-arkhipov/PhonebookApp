@@ -2,7 +2,7 @@ import { Box, Container, Typography, Link } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Box component="footer" sx={{ bgcolor: 'rgba(0, 0, 0, 0.12)', py: 2 }}>
+    <Box component="footer" sx={{ bgcolor: 'rgb(159 159 159 / 12%)', py: 2 }}>
       <Container maxWidth="lg">
         <Typography variant="h5" align="center" gutterBottom>
           PHONEBOOK
