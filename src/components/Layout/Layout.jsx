@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import AppBar from 'components/AppBar';
+import Footer from 'components/Footer';
 
 import { Box, Container } from '@mui/material';
 
@@ -14,7 +15,8 @@ const Layout = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
+          height: '100vh',
           bgcolor: '#fff',
         }}
       >
@@ -25,7 +27,6 @@ const Layout = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            minHeight: '900px',
           }}
         >
           <Box
@@ -35,8 +36,8 @@ const Layout = () => {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              pt: '32px',
-              pb: '32px',
+              pt: '186px',
+              pb: '186px',
             }}
           >
             <Suspense>
@@ -44,6 +45,7 @@ const Layout = () => {
             </Suspense>
           </Box>
         </Box>
+        <Footer />
       </Container>
     </>
   );

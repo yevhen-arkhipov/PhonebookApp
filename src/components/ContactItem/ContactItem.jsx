@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import { deleteContact } from 'redux/contacts/operations';
 
-import { ListItem, Typography, Button, Icon } from '@mui/material';
+import { ListItem, Typography, Button, Avatar, Icon } from '@mui/material';
+import InsertEmoticonOutlinedIcon from '@mui/icons-material/InsertEmoticonOutlined';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 
 const ContactItem = ({ id, name, number }) => {
@@ -25,6 +26,18 @@ const ContactItem = ({ id, name, number }) => {
         pl: '14px',
       }}
     >
+      <Avatar
+        sx={{
+          ml: '10px',
+          mr: '10px',
+          color: '#767474',
+          bgcolor: '#ffffff',
+          border: '1px solid #767474',
+          borderRadius: 1,
+        }}
+      >
+        <InsertEmoticonOutlinedIcon />
+      </Avatar>
       <Typography component="h4" variant="1">
         {name}: {number}
       </Typography>
