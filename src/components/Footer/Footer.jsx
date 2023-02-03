@@ -14,7 +14,7 @@ const Footer = () => {
           component="h4"
           gutterBottom
         >
-          Manage your contact list easily!
+          All of your contacts in one place!
         </Typography>
         <Typography variant="h8" color="#000000" align="center" component="h5">
           {'Copyright © '}

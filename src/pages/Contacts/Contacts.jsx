@@ -42,7 +42,7 @@ const Contacts = () => {
         Phonebook
       </Typography>
       <ContactForm />
-      <Avatar sx={{ marginTop: '40px', bgcolor: '#883f2d' }}>
+      <Avatar sx={{ marginTop: 10, bgcolor: '#883f2d' }}>
         <PersonSearchIcon />
       </Avatar>
       <Typography

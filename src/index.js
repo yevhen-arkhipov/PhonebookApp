@@ -7,7 +7,7 @@ import { store, persistor } from 'redux/store';
 
 import App from 'components/App';
 
-import GlobalStyle from 'components/GlobalStyle';
+import GlobalStyle from './GlobalStyles';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);

@@ -36,8 +36,8 @@ const Layout = () => {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              pt: '186px',
-              pb: '186px',
+              pt: '55px',
+              pb: '55px',
             }}
           >
             <Suspense>
